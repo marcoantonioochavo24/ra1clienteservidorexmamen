@@ -7,20 +7,54 @@ $productos = [
         "id" => 1,
         "nombre" => "Camiseta básica",
         "descripcion" => "Camiseta de algodón 100% en varios colores.",
-        "precio" => 12.99
+        "precio" => 12.99,
+        "img" => "https://www.soloepis.com/7991-large_default/camiseta-algodn-varios-colores.jpg",
+        "categoria" => "ropa"
     ],
     [
         "id" => 2,
         "nombre" => "Pantalón vaquero",
         "descripcion" => "Pantalón de mezclilla azul clásico.",
-        "precio" => 29.95
+        "precio" => 29.95,
+        "img" => "https://estilomoto.com/wp-content/uploads/2024/01/VAQUERO-UNIK-CON-KEVLAR-PJ-0E-AZUL-OSCURO-1.png",
+        "categoria" => "ropa"
+
+
     ],
     [
         "id" => 3,
         "nombre" => "Zapatillas deportivas",
         "descripcion" => "Zapatillas ligeras y cómodas para el día a día.",
-        "precio" => 45.50
+        "precio" => 45.50,
+         "img" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-IUXKZRZA6EQOIel-hQ1F5zjyfZR9Hd1LLg&s",
+         "categoria" => "calzado"
     ],
+    [
+        "id" => 4,
+        "nombre" => "Sudadera con capucha",
+        "descripcion" => "Sudadera de algodón ideal para el frío.",
+        "precio" => 35.90,
+         "img" => "https://minimalismbrand.com/cdn/shop/files/sudadera-con-capucha-algodon-organico-negra_2f080590-6ae3-4dae-8296-f955353e5972_2048x.jpg?v=1727176164",
+         "categoria" => "ropa"
+    ],
+    [
+         "id" => 5,
+        "nombre" => "Gorra Básica",
+        "descripcion" => "Gorra ajustable.",
+        "precio" => 9.87,
+         "img" => "https://www.regalopublicidad.com/images/1hy14/274df8862ba9ffca855d2ed169e8/610-460/gorra-basica-fabricada-en-algodon-liso-negra.jpg",
+         "categoria" => "accesorios"
+    ],
+    [
+         "id" => 6,
+        "nombre" => "Mochila",
+        "descripcion" => "Mochila resistente para usu diario.",
+        "precio" => 24.50,
+         "img" => "https://www.sulema.es/tienda/52984-large_default/mochila-escolar-paris.jpg",
+         "categoria" => "accesorios"
+    ]
+    
+    
 ];
 
 if (isset($_GET['id'])) {
@@ -46,7 +80,11 @@ else {
 //http://localhost/ra1clienteservidorexmamen/servidor/api.php?modo=texto
 function mostrarProductosJSON($productos) {
     echo "--- Lista de productos ---<br>";
+    // Convertir el array a Json
     $json = json_encode($productos);
     $array = json_decode($json, true);
-    //Crear un foreach para recorrerlo  y pintar por pantalla, el id, nombre y precio del producto
+    //Creo un foreach para recorrerlo  y pintar por pantalla, el id, nombre y precio del producto
+    foreach ($array as $p) {
+        echo $p["nombre"] . " - " . number_format($p["precio"], 2) . "€<br>";
+    }
 }

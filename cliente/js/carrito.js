@@ -28,3 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.reload();
   });
 });
+
+// Act.4 Mostrar cantidad de productos en el carrito 
+const textoCarrito = document.getElementById8("texto-carrito");
+// Por si no está en todas las pag
+if (textoCarrito) {
+  const cantidad = carrito.lenght;
+  textoCarrito.textContent = `Carrito (${cantidad})`;
+}
+
+// Basicamente he añadido un contador para actualizar el numero
+// de productos dentro del texto"carrito"
